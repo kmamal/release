@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const args = (() => {
+	const Argparse = require('argparse')
+
+	const parser = new Argparse.ArgumentParser({
+		description: "Release script for npm rojects hosted on the pi",
+		addHelp: true,
+	})
+
+	parser.addArgument([ '-p', '--path' ], {
+		help: "Path to the git repository",
+		defaultValue: '.',
+	})
+
+	parser.addArgument([ '-t', '--type' ], {
+		help: "Type of release",
+		choices: [ 'major', 'minor', 'patch' ],
+		defaultValue: 'patch',
+	})
+
+	parser.addArgument([ '-f', '--force' ], {
+		help: "Commit and push everything",
+		action: 'storeTrue',
+	})
+
+	return parser.parseArgs()
+})()
+
+
+const { release } = require('../src')
+
+release(args.path, args.type, { force: args.force })
