@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "@xyz/release",
+  "name": "@kmamal/release",
   "description": "release",
   "main": "src/index.js",
   "scripts": {
@@ -12,9 +12,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "argparse": "^1.0.10",
+    "argparse": "^2.0.1",
     "semver": "^7.3.2",
     "simple-git": "^2.2.0"
   }

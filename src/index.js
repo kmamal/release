@@ -31,7 +31,7 @@ const release = async (_path, type, options) => {
 			await git.commit('chore(commit): force')
 			await git.push()
 		} else {
-			console.error('Repo state not clean', problems)
+			console.error("Repo state not clean", problems)
 			process.exit(1)
 		}
 	}
@@ -40,7 +40,7 @@ const release = async (_path, type, options) => {
 	try {
 		current = await git.raw([ 'describe', '--tags', '--first-parent' ])
 		if (!current.includes('-') && !force) {
-			console.error('No changes since', current)
+			console.error("No changes since", current)
 			process.exit(1)
 		}
 		current = current.slice(0, current.indexOf('-'))
@@ -50,7 +50,7 @@ const release = async (_path, type, options) => {
 
 	const version = SemVer.parse(current)
 	if (!version) {
-		const error = new Error('Invalid tag')
+		const error = new Error("Invalid tag")
 		error.tag = current
 		throw error
 	}
@@ -58,7 +58,7 @@ const release = async (_path, type, options) => {
 	try {
 		version.inc(type)
 	} catch (err) {
-		const error = new Error('Failed to increment')
+		const error = new Error("Failed to increment")
 		error.version = current
 		error.type = type
 		error.error = error

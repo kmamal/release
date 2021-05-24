@@ -5,26 +5,26 @@ const args = (() => {
 
 	const parser = new Argparse.ArgumentParser({
 		description: "Release script for npm rojects hosted on the pi",
-		addHelp: true,
+		add_help: true,
 	})
 
-	parser.addArgument([ '-p', '--path' ], {
+	parser.add_argument('-p', '--path', {
 		help: "Path to the git repository",
-		defaultValue: '.',
+		default: '.',
 	})
 
-	parser.addArgument([ '-t', '--type' ], {
+	parser.add_argument('-t', '--type', {
 		help: "Type of release",
 		choices: [ 'major', 'minor', 'patch' ],
-		defaultValue: 'patch',
+		default: 'patch',
 	})
 
-	parser.addArgument([ '-f', '--force' ], {
+	parser.add_argument('-f', '--force', {
 		help: "Commit and push everything",
-		action: 'storeTrue',
+		action: 'store_true',
 	})
 
-	return parser.parseArgs()
+	return parser.parse_args()
 })()
 
 
