@@ -3,15 +3,10 @@
   "name": "@kmamal/release",
   "description": "release",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git:release"
+    "url": "git@github.com:kmamal/release.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "argparse": "^2.0.1",
